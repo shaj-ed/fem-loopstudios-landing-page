@@ -2,7 +2,7 @@
 
 ## Welcome! 👋
 
-![Design preview for the Loopstudios landing page coding challenge](./dist/desktop-preview.jpg)
+![Design preview for the Loopstudios landing page coding challenge](./src/images/desktop-preview.jpg)
 
 Users should be able to:
 
@@ -11,5 +11,5 @@ Users should be able to:
 
 # Solution Link
 
-- [Frontend Mentor]()
+- [Frontend Mentor](https://www.frontendmentor.io/solutions/mobile-first-html5-css-vanillajs-gulp-Kw0TrFTZW)
 - [Netlify](https://fem-loopstudios-landing-page.netlify.app/)
