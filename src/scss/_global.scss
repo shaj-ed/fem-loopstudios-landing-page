@@ -1,0 +1,57 @@
+@use 'variables' as *;
+@use 'mixins' as m;
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-size: 62.5%;
+  font-family: $font-body;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3 {
+  text-transform: uppercase;
+  font-weight: 300;
+}
+
+h2 {
+  font-size: 3rem;
+
+  @include m.responsive-size(large) {
+    font-size: 4.5rem;
+  }
+}
+
+button {
+  border: 0;
+  outline: 0;
+  font-family: $font-heading;
+}
+
+// Helper class
+.container {
+  max-width: 111rem;
+  margin: 0 auto;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
+
+.no-scroll {
+  overflow: hidden;
+
+  @include m.responsive-size(large) {
+    overflow: initial;
+  }
+}

@@ -1,0 +1,106 @@
+@use 'variables' as *;
+@use 'mixins' as m;
+
+.header {
+  padding-top: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &__logo {
+    @include m.logo;
+    z-index: 100;
+  }
+
+  &__menu-toggle {
+    width: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    background-color: transparent;
+    cursor: pointer;
+    z-index: 100;
+
+    @include m.responsive-size(large) {
+      display: none;
+    }
+
+    span {
+      width: 100%;
+      height: 0.2rem;
+      background-color: $white;
+      transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+      &:first-of-type {
+        transform-origin: 4px 2px;
+      }
+
+      &:last-of-type {
+        transform-origin: 7px 1px;
+      }
+    }
+  }
+
+  &__nav {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: $black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 2.5rem;
+    gap: 2.5rem;
+    transform: translateX(-100%);
+    transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    z-index: 10;
+
+    @include m.responsive-size(large) {
+      position: initial;
+      width: initial;
+      height: initial;
+      background-color: transparent;
+      gap: 3rem;
+      flex-direction: row;
+      padding-left: 0;
+      transform: translateX(0);
+    }
+  }
+
+  &__link {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    color: $white;
+    opacity: 0.9;
+
+    @include m.responsive-size(large) {
+      opacity: 1;
+      @include m.links;
+    }
+  }
+}
+
+// Show menu
+.header.show-menu .header__menu-toggle {
+  span {
+    &:nth-last-of-type(2) {
+      opacity: 0;
+    }
+
+    &:first-of-type {
+      transform-origin: 4px 2px;
+      transform: rotate(45deg);
+    }
+
+    &:last-of-type {
+      transform-origin: 7px 1px;
+      transform: rotate(-45deg);
+    }
+  }
+}
+
+.header.show-menu .header__nav {
+  transform: translateX(0);
+}

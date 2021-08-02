@@ -1,0 +1,192 @@
+@use 'variables' as *;
+@use 'mixins' as m;
+
+.creation {
+  margin-top: 6rem;
+  margin-bottom: 12rem;
+
+  @include m.responsive-size(large) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      "title cta"
+      "items items";
+  }
+
+  &__title {
+    text-align: center;
+
+    @include m.responsive-size(large) {
+      grid-area: title;
+      text-align: left;
+      align-self: center;
+    }
+  }
+
+  &__list {
+    margin-top: 3.5rem;
+
+    @include m.responsive-size(large) {
+      margin-top: 6rem;
+      grid-area: items;
+      justify-self: start;
+      display: grid;
+      gap: 3rem;
+      grid-template-columns: repeat(3, 26rem);
+    }
+
+    @include m.responsive-size(xxlarge) {
+      grid-template-columns: repeat(4, 26rem);
+    }
+  }
+
+  &__item {
+    width: 100%;
+    max-width: 41.5rem;
+    height: 12rem;
+    margin: 0 auto 0 auto;
+    display: flex;
+    align-items: flex-end;
+    position: relative;
+    cursor: pointer;
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      background-color: rgba($black, 0.3);
+      transition: all 0.2s ease-in-out;
+    }
+
+    &:hover::after {
+      background-color: rgba($white, 0.6);
+    }
+
+    &:hover h3 {
+      color: $black;
+    }
+
+    &:not(:last-of-type) {
+      margin-bottom: 2.5rem;
+    }
+
+    @include m.responsive-size(large) {
+      height: 45rem;
+    }
+
+    &:nth-of-type(1) {
+      background: url("../images/mobile/image-deep-earth.jpg") no-repeat center
+        center/ cover;
+
+      @include m.responsive-size(large) {
+        background-image: url("../images/desktop/image-deep-earth.jpg");
+      }
+    }
+
+    &:nth-of-type(2) {
+      background: url("../images/mobile/image-night-arcade.jpg") no-repeat
+        center center / cover;
+
+      @include m.responsive-size(large) {
+        background-image: url("../images/desktop/image-night-arcade.jpg");
+      }
+    }
+
+    &:nth-of-type(3) {
+      background: url("../images/mobile/image-soccer-team.jpg") no-repeat center
+        center / cover;
+
+      @include m.responsive-size(large) {
+        background-image: url("../images/desktop/image-soccer-team.jpg");
+      }
+    }
+
+    &:nth-of-type(4) {
+      background: url("../images/mobile/image-grid.jpg") no-repeat center center /
+        cover;
+
+      @include m.responsive-size(large) {
+        background-image: url("../images/desktop/image-grid.jpg");
+      }
+    }
+
+    &:nth-of-type(5) {
+      background: url("../images/mobile/image-from-above.jpg") no-repeat center
+        center / cover;
+
+      @include m.responsive-size(large) {
+        background-image: url("../images/desktop/image-from-above.jpg");
+      }
+    }
+
+    &:nth-of-type(6) {
+      background: url("../images/mobile/image-pocket-borealis.jpg") no-repeat
+        center center / cover;
+
+      @include m.responsive-size(large) {
+        background-image: url("../images/desktop/image-pocket-borealis.jpg");
+      }
+    }
+
+    &:nth-of-type(7) {
+      background: url("../images/mobile/image-curiosity.jpg") no-repeat center
+        center / cover;
+
+      @include m.responsive-size(large) {
+        background-image: url("../images/desktop/image-curiosity.jpg");
+      }
+    }
+
+    &:nth-of-type(8) {
+      background: url("../images/mobile/image-fisheye.jpg") no-repeat center
+        center / cover;
+
+      @include m.responsive-size(large) {
+        background-image: url("../images/desktop/image-fisheye.jpg");
+      }
+    }
+
+    h3 {
+      font-size: 2.2rem;
+      padding: 2rem;
+      color: $white;
+      position: relative;
+      z-index: 10;
+
+      @include m.responsive-size(large) {
+        font-size: 3rem;
+        padding: 3rem;
+      }
+    }
+  }
+
+  &__cta {
+    display: block;
+    margin: 4rem auto 0 auto;
+    padding: 1.2rem 4.5rem;
+    border: 0.2rem solid $black;
+    font-size: 1.6rem;
+    font-weight: 400;
+    letter-spacing: 0.4rem;
+    background-color: transparent;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+    &:hover {
+      background-color: $black;
+      color: $white;
+    }
+
+    @include m.responsive-size(large) {
+      grid-area: cta;
+      margin: 0;
+      align-self: center;
+      justify-self: end;
+    }
+  }
+}
